@@ -144,7 +144,6 @@ if __name__ == "__main__":
             console.print("[bold green]SUCCESSFUL[/bold green].")
             sleep(2)
         while True:
-            [red]<<<<<<<<<<<<<<<<<<<[/red][ SERVICES ][red]>>>>>>>>>>>>>>>>>>>[/red][/bold]")
             banner(console)
             load_player_data(cpm)
             load_key_data(cpm)
