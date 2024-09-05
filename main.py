@@ -21,8 +21,8 @@ from rich.text import Text
 from rich.style import Style
 from cpmnuker import CPMNuker
 
-__CHANNEL_USERNAME__ = "CPMNuker"
-__GROUP_USERNAME__   = "CPMNukerChat"
+__CHANNEL_USERNAME__ = "CPMOne Owner"
+__GROUP_USERNAME__   = "CPMOneShop"
 
 def signal_handler(sig, frame):
     print("\n Bye Bye...")
@@ -47,7 +47,7 @@ def gradient_text(text, colors):
 
 def banner(console):
     os.system('cls' if os.name == 'nt' else 'clear')
-    brand_name = figlet_format('CPMNuker2', font='drpepper')
+    brand_name = figlet_format('CPMOne2', font='drpepper')
     colors = [
         "rgb(255,0,0)", "rgb(255,69,0)", "rgb(255,140,0)", "rgb(255,215,0)", "rgb(173,255,47)", 
         "rgb(0,255,0)", "rgb(0,255,255)", "rgb(0,191,255)", "rgb(0,0,255)", "rgb(139,0,255)",
@@ -55,9 +55,9 @@ def banner(console):
     ]
     colorful_text = gradient_text(brand_name, colors)
     console.print(colorful_text, end=None)
-    console.print("[bold green]♕ CPMNuker[/bold green]: Car Parking Multiplayer 2 Hacking Tool.")
+    console.print("[bold green]♕ CPMOne[/bold green]: Car Parking Multiplayer 2 Hacking Tool.")
     console.print(f"[bold green]♕ Telegram[/bold green]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue] or [bold blue]@{__GROUP_USERNAME__}[/bold blue].")
-    console.print("[bold red]==================================================[/bold red]")
+    console.print("[bold red]<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>[/bold red]")
     console.print("[bold yellow]! Note[/bold yellow]: Logout from the game before using this tool !.", end="\n\n")
 
 def load_player_data(cpm):
@@ -67,7 +67,7 @@ def load_player_data(cpm):
         WalletData = data.get('WalletData')
         PlayerStorage = data.get('PlayerStorage')
         if 'Money' in WalletData and 'LocalID' in PlayerStorage and 'Brakes' in PlayerStorage:
-            console.print("[bold][red]================[/red][ PLAYER DETAILS ][red]================[/red][/bold]")
+            console.print("[bold][red]<<<<<<<<<<<<<<<<[/red][ PLAYER DETAILS ][red]>>>>>>>>>>>>>>>>[/red][/bold]")
             console.print(f"[bold green]Name   [/bold green]: { (PlayerStorage.get('Name') if 'Name' in PlayerStorage else 'UNDEFINED') }.")
             console.print(f"[bold green]ID     [/bold green]: { (PlayerStorage.get('LocalID') if 'LocalID' in PlayerStorage else 'UNDEFINED') }.")
             console.print(f"[bold green]Money  [/bold green]: { (WalletData.get('Money') if 'Money' in WalletData else 'UNDEFINED') }.")
@@ -81,7 +81,7 @@ def load_player_data(cpm):
     
 def load_key_data(cpm):
     data = cpm.get_key_data()
-    console.print("[bold][red]==================================================[/red][/bold]")
+    console.print("[bold][red]<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>[/red][/bold]")
     console.print(f"[bold green]Access Key [/bold green]: { data.get('access_key') }.")
     console.print(f"[bold green]Telegram ID[/bold green]: { data.get('telegram_id') }.")
     console.print(f"[bold green]Balance    [/bold green]: { (data.get('coins') if not data.get('is_unlimited') else 'Unlimited') }.")
@@ -89,10 +89,10 @@ def load_key_data(cpm):
 def load_client_details():
     response = requests.get("http://ip-api.com/json")
     data = response.json()
-    console.print("[bold][red]==================================================[/red][/bold]")
+    console.print("[bold][red]<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>[/red][/bold]")
     console.print(f"[bold][green]Location[/bold][/green]: {data.get('city')}, {data.get('regionName')}, {data.get('countryCode')}")
     console.print(f"[bold][green]ISP[/bold][/green]     : {data.get('isp')}")
-    console.print("[bold][red]===================[/red][ SERVICES ][red]===================[/red][/bold]")
+    console.print("[bold][red]<<<<<<<<<<<<<<<<<<<[/red][ SERVICES ][red]>>>>>>>>>>>>>>>>>>>[/red][/bold]")
 
 def prompt_valid_value(content, tag, password=False):
     while True:
@@ -193,7 +193,7 @@ if __name__ == "__main__":
                 status = cpm.register(acc2_email, acc2_password)
                 if status == 0:
                     console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
+                    console.print("<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>")
                     console.print(f"[bold red]! INFO[/bold red]: In order to tweak this account with CPMNuker")
                     console.print("you most sign-in to the game using this account.")
                     sleep(2)
