@@ -139,8 +139,3 @@ class CPMNuker:
         response = requests.post(f"{BASE_URL}/unlock_cars", params=params, data=payload)
         response_decoded = response.json()
         return response_decoded.get("ok")
-
-#############################################
-# DO NOT BUY THIS TOOL FROM ANY SCAMMER !!! #
-# OFFICIAL SELLER IS 'ANAS' AT TELEGRAM !!! #
-#############################################
