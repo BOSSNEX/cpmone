@@ -9,7 +9,7 @@ from rich.console import Console
 from rich.prompt import Prompt, IntPrompt
 from rich.text import Text
 from rich.style import Style
-from CPMElse import CPMElse
+from cpmnuker import CPMNuker
 
 __MY_USERNAME__ = "Elsedev"
 
@@ -128,7 +128,7 @@ if __name__ == "__main__":
         acc_password = prompt_valid_value("[bold][?] Account Password[/bold]", "Password", password=True)
         access_key = prompt_valid_value("[bold][?] Qual a chave de acesso?[/bold]", "Chave de Acesso")
         
-        cpm = CPMElse(access_key=access_key)
+        cpm = CPMNuker(access_key=access_key)
         
         key_data = cpm.get_key_access()
         
