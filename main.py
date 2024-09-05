@@ -142,7 +142,7 @@ if __name__ == "__main__":
             choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"]
             console.print("[bold][cyan](01):[/cyan] [green]Account Delete ~ FREE[/green]")
             console.print("[bold][cyan](02):[/cyan] [green]Account Register ~ FREE[/green]")
-            console.print("[bold][cyan](03):[/cyan] [green]Increase Money ~ 4K[/green]")
+            console.print("[bold][cyan](03):[/cyan] [green]Increase Money[/green]")    [bold red]4.000K[/bold red]")
             console.print("[bold][cyan](04):[/cyan] [green]Change ID ~ 2.5K[/green]")
             console.print("[bold][cyan](05):[/cyan] [green]Change Name ~ 1K[/green]")
             console.print("[bold][cyan](06):[/cyan] [green]Complete Missions ~ 6K[/green]")
