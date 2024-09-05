@@ -147,7 +147,6 @@ if __name__ == "__main__":
             banner(console)
             load_player_data(cpm)
             load_key_data(cpm)
-            load_client_details()
             choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"]
             console.print("[bold][cyan](01):[/cyan] [green]Account Delete ~ FREE[/green]")
             console.print("[bold][cyan](02):[/cyan] [green]Account Register ~ FREE[/green]")
