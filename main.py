@@ -154,256 +154,214 @@ if __name__ == "__main__":
         while True:
             banner(console)
             load_player_data(cpm)
-            load_key_data(cpm)
+            load_key_details(cpm, key_data)
             load_client_details()
-            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"]
-            console.print("[bold][cyan](01):[/cyan] [green]Account Delete ~ FREE[/green]")
-            console.print("[bold][cyan](02):[/cyan] [green]Account Register ~ FREE[/green]")
-            console.print("[bold][cyan](03):[/cyan] [green]Increase Money ~ 4K[/green]")
-            console.print("[bold][cyan](04):[/cyan] [green]Change ID ~ 2.5K[/green]")
-            console.print("[bold][cyan](05):[/cyan] [green]Change Name ~ 1K[/green]")
-            console.print("[bold][cyan](06):[/cyan] [green]Complete Missions ~ 6K[/green]")
-            console.print("[bold][cyan](07):[/cyan] [green]Delete Friends ~ 2K[/green]")
-            console.print("[bold][cyan](08):[/cyan] [green]King Rank ~ 6K[/green]")
-            console.print("[bold][cyan](09):[/cyan] [green]Maximize Drag Wins ~ 6K[/green]")
-            console.print("[bold][cyan](10):[/cyan] [green]Unlock Slots ~ 7K[/green]")
-            console.print("[bold][cyan](11):[/cyan] [green]Unlock Apartments ~ 10K[/green]")
-            console.print("[bold][cyan](12):[/cyan] [green]Unlock Brakes ~ 5K[/green]")
-            console.print("[bold][cyan](13):[/cyan] [green]Unlock Wheels ~ 6K[/green]")
-            console.print("[bold][cyan](14):[/cyan] [green]Unlock Clothes ~ 9K[/green]")
-            console.print("[bold][cyan](15):[/cyan] [green]Unlock Cars ~ 10K[/green]")
-            console.print("[bold][cyan](0) :[/cyan] [red]Exit[/red]", end="\n\n")
-            service = IntPrompt.ask(f"[bold][?] Select a Service [red][1-{choices[-1]} or 0][/red][/bold]", choices=choices, show_choices=False)
-            if service == 0: # Exit
-                console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-            elif service == 1: # Account Delete
-                console.print("[bold cyan][!] After deleting your account there is no going back !!.[/bold cyan]")
-                answ = Prompt.ask("[bold cyan][?] Do You want to Delete this Account ?![/bold cyan]", choices=["y", "n"], default="n")
-                if answ == "y":
-                    cpm.delete()
-                    console.print("[bold cyan][%] Deleting Your Account[/bold cyan]: [bold green]SUCCESSFUL.[/bold green].")
-                    console.print("==================================")
-                    console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                else: continue
-            elif service == 2: # Account Register
-                console.print("[bold cyan][!] Registring new Account.[/bold cyan]")
-                acc2_email = prompt_valid_value("[bold][?] Account Email[/bold]", "Email", password=False)
-                acc2_password = prompt_valid_value("[bold][?] Account Password[/bold]", "Password", password=False)
-                console.print("[bold cyan][%] Creating new Account[/bold cyan]: ", end=None)
-                status = cpm.register(acc2_email, acc2_password)
-                if status == 0:
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    console.print(f"[bold red]! INFO[/bold red]: In order to tweak this account with CPMNuker")
-                    console.print("you most sign-in to the game using this account.")
-                    sleep(2)
-                    continue
-                elif status == 105:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] This email is already exists !.[/bold yellow]")
-                    sleep(2)
-                    continue
-                else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue 
-            elif service == 3: # Increase Money
-                console.print("[bold cyan][!] Insert how much money do you want.[/bold cyan]")
-                amount = IntPrompt.ask("[bold][?] Amount[/bold]")
-                console.print("[bold cyan][%] Saving your data[/bold cyan]: ", end=None)
-                if amount > 0 and amount <= 500000000:
-                    if cpm.set_player_money(amount):
-                        console.print("[bold green]SUCCESSFUL.[/bold green]")
-                        console.print("==================================")
-                        answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                        if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                        else: continue
-                    else:
-                        console.print("[bold red]FAILED.[/bold red]")
-                        console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                        sleep(2)
+            choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "0"]
+            console.print("[cyan](1):[/cyan] [red]Change Name[/red]", end="\n\n")
+            console.print("[cyan](2):[/cyan] [red]Change ID[/red]", end="\n\n")
+            console.print("[cyan](3):[/cyan] [red]Insert Money[/red]", end="\n\n")
+            console.print("[cyan](4):[/cyan] [red]Insert Slot[/red]", end="\n\n")
+            console.print("[cyan](5):[/cyan] [red]Unlock All Houses[/red]", end="\n\n")
+            console.print("[cyan](6):[/cyan] [red]Insert King Rank[/red]", end="\n\n")
+            console.print("[cyan](7):[/cyan] [red]Set All Levels[/red]", end="\n\n")
+            console.print("[cyan](8):[/cyan] [red]Unlock All Wheels[/red]", end="\n\n")
+            console.print("[cyan](9):[/cyan] [red]Unlock All Equipaments Female[/red]", end="\n\n")
+            console.print("[cyan](10):[/cyan] [red]Unlock All Equipaments Male[/red]", end="\n\n")
+            console.print("[cyan](11):[/cyan] [red]Unlock All Brakes[/red]", end="\n\n")
+            console.print("[cyan](12):[/cyan] [red]Unlock All Calipers[/red]", end="\n\n")
+            console.print("[cyan](13):[/cyan] [red]Unlock All Paint[/red]", end="\n\n")
+            console.print("[cyan](14):[/cyan] [red]Unlock Car[/red]", end="\n\n")
+            console.print("[cyan](15):[/cyan] [red]Unlock All Animations[/red]", end="\n\n")
+            console.print("[cyan](16):[/cyan] [red]Set Crash V1[/red]", end="\n\n")
+            console.print("[cyan](17):[/cyan] [red]Set Fix V1[/red]", end="\n\n")
+            console.print("[cyan](0):[/cyan] [red]Exit[/red]", end="\n\n")
+            service = IntPrompt.ask(f"[bold][?] Select a Service [red][1-13 or 0][/red][/bold]", choices=choices, show_choices=False)
+            if service == 1:
+                new_name = prompt_valid_value("[bold][?] New Name[/bold]", "Name", min_length=1, max_length=15)
+                success = cpm.set_player_name(new_name)
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
                         continue
-                else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please use valid values.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 4: # Change ID
-                console.print("[bold cyan][!] Enter your new ID.[/bold cyan]")
-                new_id = Prompt.ask("[bold][?] ID[/bold]")
-                console.print("[bold cyan][%] Saving your data[/bold cyan]: ", end=None)
-                if len(new_id) >= 2 and len(new_id) <= 50 and (' ' in new_id) == False:
-                    if cpm.set_player_id(new_id.upper()):
-                        console.print("[bold green]SUCCESSFUL.[/bold green]")
-                        console.print("==================================")
-                        answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                        if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                        else: continue
                     else:
-                        console.print("[bold red]FAILED.[/bold red]")
-                        console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                        sleep(2)
-                        continue
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please use valid ID.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 5: # Change Name
-                console.print("[bold cyan][!] Enter your new Name.[/bold cyan]")
-                new_name = Prompt.ask("[bold][?] Name[/bold]")
-                console.print("[bold cyan][%] Saving your data[/bold cyan]: ", end=None)
-                if len(new_name) >= 0 and len(new_name) <= 30:
-                    if cpm.set_player_name(new_name):
-                        console.print("[bold green]SUCCESSFUL.[/bold green]")
-                        console.print("==================================")
-                        answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                        if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                        else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Change Name.")
+            elif service == 2:
+                new_id = prompt_valid_value("[bold][?] New ID[/bold]", "ID", min_length=1, max_length=10)
+                success = cpm.set_player_id(new_id)
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
                     else:
-                        console.print("[bold red]FAILED.[/bold red]")
-                        console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                        sleep(2)
+                        break
+                else:
+                    console.print("[bold red]FAILED[/bold red]: Failed to Change ID.")
+            elif service == 3:
+                money = prompt_valid_number("[bold][?] Insert Money (0-50000000)[/bold]", "Amount", 0, 50000000)
+                success = cpm.insert_money(money)
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
                         continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please use valid values.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 6: # Complete Missions
-                console.print("[bold cyan][%] Completing all missions[/bold cyan]: ", end=None)
-                if cpm.complete_missions():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Insert Money.")
+            elif service == 4:
+                slots = prompt_valid_number("[bold][?] Number of Slots to Insert (1-20)[/bold]", "Amount", 1, 20)
+                success = cpm.insert_slots(slots)
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 7: # Delete Friends
-                console.print("[bold cyan][%] Deleting Friends[/bold cyan]: ", end=None)
-                if cpm.delete_player_friends():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Insert Slots.")
+            elif service == 5:
+                success = cpm.unlock_all_houses()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 8: # King Rank
-                console.print("[bold red][!] Note:[/bold red]: if the king rank doesn't appear in game, logout and login few times.")
-                console.print("[bold red][!] Note:[/bold red]: please don't do King Rank on same account twice !!.", end="\n\n")
-                sleep(2)
-                console.print("[bold cyan][%] Upgrading Rank[/bold cyan]: ", end=None)
-                if cpm.set_player_rank():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Unlock All Houses.")
+            elif service == 6:
+                success = cpm.set_player_king_rank()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 9: # Maximize Drag Wins
-                console.print("[bold cyan][%] Maximizing drag wins[/bold cyan]: ", end=None)
-                if cpm.maximize_drag_wins():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Insert King Rank.")
+            elif service == 7:
+                success = cpm.set_player_all_levels()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 10: # Unlock Slots
-                console.print("[bold cyan][%] Unlocking all slots[/bold cyan]: ", end=None)
-                if cpm.unlock_slots():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Set All Levels.")
+            elif service == 8:
+                success = cpm.unlock_all_wheels()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 11: # Unlock Apartments
-                console.print("[bold cyan][%] Unlocking All apartments[/bold cyan]: ", end=None)
-                if cpm.unlock_apartments():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Unlock All Wheels.")
+            elif service == 9:
+                success = cpm.unlock_equip_female()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 12: # Unlock Brakes
-                console.print("[bold cyan][%] Unlocking Brakes[/bold cyan]: ", end=None)
-                if cpm.unlock_brakes():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Unlock All Equipaments Female.")
+            elif service == 10:
+                success = cpm.unlock_equip_male()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 13: # Unlock Wheels
-                console.print("[bold cyan][%] Unlocking Wheels[/bold cyan]: ", end=None)
-                if cpm.unlock_wheels():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Unlock All Equipaments Male.")
+            elif service == 11:
+                success = cpm.unlock_all_brakes()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 14: # Unlock Clothes
-                console.print("[bold cyan][%] Unlocking Clothes[/bold cyan]: ", end=None)
-                if cpm.unlock_clothes():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Unlock All Brakes.")
+            elif service == 12:
+                success = cpm.unlock_all_calipers()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
-            elif service == 15: # Unlock Cars
-                console.print("[bold cyan][%] Unlocking Cars[/bold cyan]: ", end=None)
-                if cpm.unlock_cars():
-                    console.print("[bold green]SUCCESSFUL.[/bold green]")
-                    console.print("==================================")
-                    answ = Prompt.ask("[bold cyan][?] Do You want to Exit ?[/bold cyan]", choices=["y", "n"], default="n")
-                    if answ == "y": console.print(f"[bold yellow][!] Thank You for using our tool, please join our telegram channel[/bold yellow]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue].")
-                    else: continue
+                    console.print("[bold red]FAILED[/bold red]: Failed to Unlock All Calipers.")
+            elif service == 13:
+                success = cpm.unlock_all_paint()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
                 else:
-                    console.print("[bold red]FAILED.[/bold red]")
-                    console.print("[bold yellow][!] Please try again.[/bold yellow]")
-                    sleep(2)
-                    continue
-            else: continue
-            break
+                    console.print("[bold red]FAILED[/bold red]: Failed to Unlock All Paint.")
+            elif service == 14:
+                valid_car_slots = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 38, 44, 64, 76, 80, 81, 82, 98, 100, 101, 102, 103, 104, 105, 106, 107, 118, 120, 126, 127, 128, 131, 132, 134, 135, 138, 139, 140, 141, 143, 144, 147, 148, 150, 152, 153]
+                car = prompt_valid_choice("[bold][?] Number Corresponding to Available Car Slot (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 38, 44, 64, 76, 80, 81, 82, 98, 100, 101, 102, 103, 104, 105, 106, 107, 118, 120, 126, 127, 128, 131, 132, 134, 135, 138, 139, 140, 141, 143, 144, 147, 148, 150, 152 and 153)[/bold]", valid_car_slots)
+                success = cpm.unlock_all_car(car)
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
+                else:
+                    console.print("[bold red]FAILED[/bold red]: Failed to Unlock Car.")
+            elif service == 15:
+                success = cpm.unlock_all_animations()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
+                else:
+                    console.print("[bold red]FAILED[/bold red]: Failed to Unlock All Animations.")
+            elif service == 16:
+                success = cpm.set_crash_acc_v1()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
+                        continue
+                    else:
+                        break
+                else:
+                    console.print("[bold red]FAILED[/bold red]: Failed to Set Crash V1.")
+            elif service == 17:
+                success = cpm.set_fix_acc_v1()
+                if success:
+                    console.print("[bold green]SUCCESSFUL[/bold green].")
+                    choice = IntPrompt.ask("[bold][?] Choose an option [red][1: Return to Menu / 0: Exit][/red][/bold]", choices=["1", "0"], show_choices=False)
+                    if choice == 1:
         break
