@@ -72,7 +72,7 @@ def load_player_data(cpm):
     
 def load_key_data(cpm):
     data = cpm.get_key_data()
-    console.print("[bold][red]<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>[/red][/bold]")
+    console.print("[bold][red]<<<<<<<<<<<<<<<<<<<<<[/red][ KEYS ][red]>>>>>>>>>>>>>>>>>>>>>[/red][/bold]")
     console.print(f"[bold green]Access Key [/bold green]: { data.get('access_key') }.")
     console.print(f"[bold green]Telegram ID[/bold green]: { data.get('telegram_id') }.")
     console.print(f"[bold green]Balance    [/bold green]: { (data.get('coins') if not data.get('is_unlimited') else 'Unlimited') }.")
