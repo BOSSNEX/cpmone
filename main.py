@@ -49,7 +49,7 @@ def banner(console):
     console.print("[bold green]♕ CPMOne[/bold green]: Car Parking Multiplayer 2 Hacking Tool.")
     console.print(f"[bold green]♕ Telegram[/bold green]: [bold blue]@{__CHANNEL_USERNAME__}[/bold blue] or [bold blue]@{__GROUP_USERNAME__}[/bold blue].")
     console.print("[bold red]<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>[/bold red]")
-    console.print("[bold yellow]! Note[/bold yellow]: Logout from the game before using this tool !.", end="\n\n")
+    console.print("[bold yellow]BY:CPMOne[/bold yellow]: THIS IS MY PERSONAL USE ONLY", end="\n\n")
 
 def load_player_data(cpm):
     response = cpm.get_player_data()
