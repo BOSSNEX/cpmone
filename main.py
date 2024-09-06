@@ -12,7 +12,7 @@ from rich.text import Text
 from rich.style import Style
 from cpmnuker import CPMNuker
 
-__CHANNEL_USERNAME__ = "CPMOne Owner"
+__CHANNEL_USERNAME__ = "CPMOneOwner"
 __GROUP_USERNAME__   = "CPMOneShop"
 
 def signal_handler(sig, frame):
@@ -38,7 +38,7 @@ def gradient_text(text, colors):
 
 def banner(console):
     os.system('cls' if os.name == 'nt' else 'clear')
-    brand_name = figlet_format('CPM2 SHOP', font='drpepper')
+    brand_name = figlet_format('CPMOne2', font='drpepper')
     colors = [
         "rgb(255,0,0)", "rgb(255,69,0)", "rgb(255,140,0)", "rgb(255,215,0)", "rgb(173,255,47)", 
         "rgb(0,255,0)", "rgb(0,255,255)", "rgb(0,191,255)", "rgb(0,0,255)", "rgb(139,0,255)",
