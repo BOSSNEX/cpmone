@@ -110,7 +110,6 @@ if __name__ == "__main__":
         acc_email = prompt_valid_value("[bold][?] Account Email[/bold]", "Email", password=False)
         acc_password = prompt_valid_value("[bold][?] Account Password[/bold]", "Password", password=False)
         console.print("[bold cyan][%] Trying to Login[/bold cyan]: ", end=None)
-        if login_response != 0:
             if login_response == 100:
                 console.print("[bold red]ACCOUNT NOT FOUND[/bold red].")
                 sleep(2)
