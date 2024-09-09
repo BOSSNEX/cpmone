@@ -105,7 +105,6 @@ def rainbow_gradient_string(customer_name):
 if __name__ == "__main__":
     console = Console()
     signal.signal(signal.SIGINT, signal_handler)
-                continue
             elif login_response == 101:
                 console.print("[bold red]WRONG PASSWORD[/bold red].")
                 sleep(2)
